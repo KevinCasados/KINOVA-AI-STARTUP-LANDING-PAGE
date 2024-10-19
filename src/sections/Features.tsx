@@ -35,7 +35,7 @@ const tabs = [
 const FeatureTab = (
   props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div'> & { selected: boolean }
 ) => {
-  const tabRef =useRef<HTMLDivElement>(null);
+  const tabRef = useRef<HTMLDivElement>(null);
   const dotLottieRef = useRef<DotLottieCommonPlayer>(null);
 
   const xPercentage = useMotionValue(0);
@@ -49,7 +49,7 @@ const FeatureTab = (
     xPercentage.set(0);
     yPercentage.set(0);
     const { height, width } = tabRef.current?.getBoundingClientRect();
-    const circumference =  height * 2 + width * 2;
+    const circumference = height * 2 + width * 2;
 
     const times = [
       0,
@@ -59,22 +59,23 @@ const FeatureTab = (
       1,
     ];
 
-    const options:ValueAnimationTransition = {
-        times,
-        duration: 4,
-        repeat: Infinity,
-        ease: 'linear',
-        repeatType: 'loop',
-    }
+    const options: ValueAnimationTransition = {
+      times,
+      duration: 4,
+      repeat: Infinity,
+      ease: 'linear',
+      repeatType: 'loop',
+    };
     animate(xPercentage, [0, 100, 100, 0, 0], options);
     animate(yPercentage, [0, 0, 100, 100, 0], options);
-  }, [props.selected]);
+  }, [props.selected, xPercentage, yPercentage]); // Añadidas dependencias xPercentage y yPercentage
 
   const handleTabHover = () => {
     if (dotLottieRef.current === null) return;
     dotLottieRef.current.seek(0);
     dotLottieRef.current.play();
-  }
+  };
+  
   return (
     <div
       ref={tabRef}
@@ -83,13 +84,14 @@ const FeatureTab = (
       onClick={props.onClick}
     >
       {props.selected && (
-        <motion.div style={{
-          maskImage, 
-        }} 
-        className="absolute inset-0 -m-px border border-[#A369FF] rounded-xl "
+        <motion.div
+          style={{
+            maskImage,
+          }}
+          className="absolute inset-0 -m-px border border-[#A369FF] rounded-xl "
         ></motion.div>
       )}
-      
+
       <div className="h-12 w-12 border border-white/15 rounded-lg inline-flex items-center justify-center">
         <DotLottiePlayer
           ref={dotLottieRef}
@@ -106,7 +108,7 @@ const FeatureTab = (
       )}
     </div>
   );
-}
+};
 
 export const Features = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -124,18 +126,18 @@ export const Features = () => {
     const animateOptions: ValueAnimationTransition = {
       duration: 2,
       ease: "easeInOut",
-    }
+    };
 
     animate(
-      backgroundSizeX, 
-      [backgroundSizeX.get(), 100, tabs[index].backgroundSizeX], 
-      animateOptions,
+      backgroundSizeX,
+      [backgroundSizeX.get(), 100, tabs[index].backgroundSizeX],
+      animateOptions
     );
 
     animate(
       backgroundPositionX,
       [backgroundPositionX.get(), tabs[index].backgroundPositionX],
-      animateOptions,
+      animateOptions
     );
 
     animate(
@@ -152,8 +154,8 @@ export const Features = () => {
           Elevetate your SEO efforts
         </h2>
         <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-5">
-          From small startups to large eterprises, our AI-driven tool has
-          revolutionized the way businesses approach SE0.
+          From small startups to large enterprises, our AI-driven tool has
+          revolutionized the way businesses approach SEO.
         </p>
         <div className="mt-10 flex flex-col lg:flex-row gap-3">
           {tabs.map((tab, tabIndex) => (
