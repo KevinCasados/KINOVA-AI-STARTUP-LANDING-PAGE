@@ -1,28 +1,45 @@
 /** @type {import('next').NextConfig} */
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
+
+let assetPrefix = '';
+let basePath = '';
+
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+}
+
 const nextConfig = {
+  output: 'export', // Configuración para exportación estática
+  assetPrefix: assetPrefix, // Prefijo de los assets para GitHub Pages
+  basePath: basePath, // Ruta base para GitHub Pages
+  images: {
+    unoptimized: true, // Desactiva la optimización de imágenes
+  },
   webpack(config) {
-    // Grab the existing rule that handles SVG imports
+    // Mantiene tu configuración actual de manejo de SVG
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
     );
 
     config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
+      // Reaplica la regla existente para svg que terminan en ?url
       {
         ...fileLoaderRule,
         test: /\.svg$/i,
         resourceQuery: /url/, // *.svg?url
       },
-      // Convert all other *.svg imports to React components
+      // Convierte todas las otras importaciones de *.svg en componentes de React
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // excluye si *.svg?url
         use: ["@svgr/webpack"],
       }
     );
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
+    // Modifica la regla del cargador de archivos para ignorar *.svg
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
