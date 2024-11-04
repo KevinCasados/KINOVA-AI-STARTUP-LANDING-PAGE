@@ -63,7 +63,7 @@ export const Testimonials = () => {
                   <div className="relative after:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light before:content-[''] before:absolute before:inset-0 before:border before:border-white/30 before:z-10 before:rounded-lg">
                     <Image 
                       src={testimonial.avatarImg} 
-                      alt={`Avatar for ${testimonial.name}`} 
+                      alt={`Testimonial from ${testimonial.name}, ${testimonial.title}`}  
                       className="h-11 w-11 rounded-lg grayscale"
                     />
                   </div>

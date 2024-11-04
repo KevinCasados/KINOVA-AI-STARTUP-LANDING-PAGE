@@ -16,10 +16,10 @@ export const Header = () => {
           </div>
           <div className='hidden md:block'>
             <nav className='flex gap-8 text-sm'>
-              <a href='#' className='text-white/70 hover:text-white transition'>Features</a>
-              <a href='#' className='text-white/70 hover:text-white transition'>Developers</a>
-              <a href='#' className='text-white/70 hover:text-white transition'>Pricing</a>
-              <a href='#' className='text-white/70 hover:text-white transition'>Changelog</a>
+              <a href="#" rel="noopener noreferrer" className="text-white/70 hover:text-white transition">Features</a>
+              <a href="#" rel="noopener noreferrer" className="text-white/70 hover:text-white transition">Developers</a>
+              <a href="#" rel="noopener noreferrer" className="text-white/70 hover:text-white transition">Pricing</a>
+              <a href="#" rel="noopener noreferrer" className="text-white/70 hover:text-white transition">Changelog</a>
             </nav> 
           </div>
           <div className='flex gap-4 items-center'>
