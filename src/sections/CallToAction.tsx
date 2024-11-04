@@ -44,7 +44,7 @@ export const CallToAction = () => {
 
   const maskImage = useMotionTemplate`radial-gradient(50% 50% at ${mouseX}px ${mouseY}px, black, transparent)`;
   return (
-    <section className="py-20 md:py-24" ref={sectionRef}>
+    <section className="py-20 md:py-24" ref={sectionRef} aria-labelledby="cta-heading">
       <div className="container">
         <motion.div
           ref={borderedDivRef}
@@ -76,7 +76,7 @@ export const CallToAction = () => {
             }}
           ></motion.div>
           <div className="relative">
-            <h2 className="text-5xl md:text-6xl max-w-sm mx-auto tracking-tighter text-center font-medium">
+            <h2 id="cta-heading" className="text-5xl md:text-6xl max-w-sm mx-auto tracking-tighter text-center font-medium">
               AI-driven SEO for everyone.
             </h2>
             <p className="text-center text-lg md:text-xl max-w-xs mx-auto text-white/70 px-4 mt-5 tracking-tight">

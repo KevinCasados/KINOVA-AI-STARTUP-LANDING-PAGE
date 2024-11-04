@@ -148,9 +148,9 @@ export const Features = () => {
   };
 
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-20 md:py-24" aria-labelledby="features-heading">
       <div className="container">
-        <h2 className="text-5xl md:text-6xl font-medium text-center tracking-tighter">
+        <h2 id="features-heading" className="text-5xl md:text-6xl font-medium text-center tracking-tighter">
           Elevetate your SEO efforts
         </h2>
         <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-5">

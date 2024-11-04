@@ -6,8 +6,12 @@ let basePath = '';
 
 if (isGithubActions) {
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
-  assetPrefix = `/${repo}/`;
+  assetPrefix = `/${repo}`;
   basePath = `/${repo}`;
+} else if (process.env.NODE_ENV === 'production') {
+  // Configuración para producción en GitHub Pages (sin barra al final)
+  assetPrefix = `/KINOVA-AI-STARTUP-LANDING-PAGE`;
+  basePath = `/KINOVA-AI-STARTUP-LANDING-PAGE`;
 }
 
 const nextConfig = {
@@ -15,7 +19,7 @@ const nextConfig = {
   assetPrefix: assetPrefix, // Prefijo de los assets para GitHub Pages
   basePath: basePath, // Ruta base para GitHub Pages
   images: {
-    unoptimized: true, // Desactiva la optimización de imágenes
+    unoptimized: true, // Desactiva la optimización de imágenes para GitHub Pages
   },
   webpack(config) {
     // Mantiene tu configuración actual de manejo de SVG
