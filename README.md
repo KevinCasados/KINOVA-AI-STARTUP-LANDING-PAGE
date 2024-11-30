@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KINOVA AI STARTUP LANDING PAGE
 
-## Getting Started
+## Descripción del Proyecto
+**KINOVA AI STARTUP LANDING PAGE** es una página web diseñada como landing page para una startup de inteligencia artificial. Este proyecto se centra no solo en un diseño moderno y responsivo, sino también en la optimización de la página, la incorporación de funcionalidades interactivas y la creación de llamados a la acción (Call To Action) efectivos para captar usuarios y mejorar la conversión.
 
-First, run the development server:
+## Tecnologías Utilizadas
+- **Frontend:**
+  - React.js
+  - TypeScript
+  - JavaScript
+  - CSS
+  - TailwindCSS
+- **Optimización:**
+  - Técnicas de SEO para mejorar la visibilidad en motores de búsqueda.
+  - Optimización del rendimiento y tiempos de carga.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funcionalidades Destacadas
+- **Interactividad:** Elementos dinámicos para captar la atención del usuario.
+- **Call To Action:** Botones y secciones optimizadas para guiar a los usuarios a realizar acciones clave.
+- **Diseño Responsivo:** Adaptación fluida a dispositivos móviles, tabletas y escritorios.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instrucciones de Instalación y Uso
+Sigue estos pasos para instalar y ejecutar el proyecto localmente:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/KevinCasados/KINOVA-AI-STARTUP-LANDING-PAGE.git
